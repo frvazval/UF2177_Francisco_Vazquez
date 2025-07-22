@@ -1,7 +1,7 @@
-// Obtengo los formularios formAny, formAnyTipus
+// Obtengo los formularios formAny, formAnyTipus y formIdioma
 const formAny = document.getElementById("formAny");
 const formAnyTipus = document-getElementById("formAnyTipus");
-
+const formIdioma = document.getElementById("formIdioma");
 
 // Obtengo el valor del input text anyo
 formAny.addEventListener('submit', (e) => {
@@ -20,6 +20,11 @@ formAnyTipus.addEventListener('submit', (e) => {
     window.location.href = ruta; // Lo envia a la ruta correspondiente
 });
 
-
+// Obtengo el valor del input text idioma
+formIdioma.addEventListener('submit', (e) => {
+    e.preventDefault(); // Para que no borre el formulario
+    let idioma = document.getElementById('idioma').value;
+    window.location.href = "/api/eoi/lang/" + idioma;
+});
 
 

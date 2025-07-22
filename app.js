@@ -67,7 +67,7 @@ app.get("/api/eoi/year/:any/type/:tipo", (req, res) => {
     const consulta = `SELECT c.Nom, i.nom_idioma,i.nombre_idioma, c.Nivell, c.Tipus, c.Any, c.Hores, c.Preu, c.Places
                       FROM cursos c 
                       NATURAL JOIN idiomes i
-                      WHERE c.Any = ${req.params.any} AND c.tipus = ${req.paramn.tipo}`;
+                      WHERE c.Any = ${req.params.any} AND c.Tipus = '${req.params.tipo}'`;
 
     // Lanzo la consulta
     conexion.query(consulta, (err, result) => {
@@ -85,6 +85,28 @@ app.get("/api/eoi/year/:any/type/:tipo", (req, res) => {
 
 });
 
+// Ruta /api/eoi/lang/:idioma
+app.get("/api/eoi/lang/:idioma", (req, res) => {
+    // Creo la consulta
+    const consulta = `SELECT c.Nom, i.nom_idioma,i.nombre_idioma, c.Nivell, c.Tipus, c.Any, c.Hores, c.Preu, c.Places
+                      FROM cursos c 
+                      NATURAL JOIN idiomes i
+                      WHERE i.nom_idioma = '${req.params.idioma}' OR i.nombre_idioma = '${req.params.idioma}'`;
+
+    // Lanzo la consulta
+    conexion.query(consulta, (err, result) => {
+        // Si hay un error
+        if (err) throw err;
+
+        // Si la consulta no devuelve ningún dato
+        if (result == 0) {
+            return res.status(404).json({"mensaje" : "No hay datos para este idioma"});
+        };
+        
+        // Si la consulta devuelve datos
+        res.json(result);
+    });
+});
 
 // ruta 404, cuando no encuentre la ruta
 app.use((req, res) => {
