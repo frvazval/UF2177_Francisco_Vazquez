@@ -13,8 +13,24 @@ const app = express();
 app.use(express.static(process.cwd() + "/public"));
 
 // Creo las diferentes rutas
+// Ruta inicial
 app.get("/", (req, res) => {
     res.sendFile("index.html") // Muestra la pagina principal
+});
+
+// Ruta /api/eoi
+app.get("/api/eoi", (req, res) => {
+    const consulta = `SELECT c.id_curs, c.Nom, i.nom_idioma,i.nombre_idioma, c.Nivell, c.Tipus, c.Any, c.Hores, c.Preu, c.Places
+                      FROM cursos c 
+                      NATURAL JOIN idiomes i`;
+                      
+    conexion.query(consulta, (err, result) => {
+        // Si hay un error
+        if(err) throw err;
+
+        // Muestra los datos
+        res.json(result);
+    });
 });
 
 // ruta 404, cuando no encuentre la ruta
