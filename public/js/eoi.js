@@ -1,6 +1,6 @@
 // Obtengo los formularios formAny, formAnyTipus y formIdioma
 const formAny = document.getElementById("formAny");
-const formAnyTipus = document-getElementById("formAnyTipus");
+const formAnyTipus = document.getElementById("formAnyTipus");
 const formIdioma = document.getElementById("formIdioma");
 
 // Obtengo el valor del input text anyo
