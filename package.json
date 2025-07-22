@@ -1,0 +1,29 @@
+{
+  "name": "uf2177_francisco_vazquez",
+  "version": "1.0.0",
+  "description": "Examen de Node y MySQL",
+  "keywords": [
+    "Node",
+    "MySQL",
+    "Express"
+  ],
+  "homepage": "https://github.com/frvazval/UF2177_Francisco_Vazquez#readme",
+  "bugs": {
+    "url": "https://github.com/frvazval/UF2177_Francisco_Vazquez/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frvazval/UF2177_Francisco_Vazquez.git"
+  },
+  "license": "ISC",
+  "author": "Francisco Vazquez",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mysql2": "^3.14.2"
+  }
+}
