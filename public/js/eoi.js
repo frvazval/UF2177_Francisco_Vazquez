@@ -24,7 +24,7 @@ formAnyTipus.addEventListener('submit', (e) => {
 formIdioma.addEventListener('submit', (e) => {
     e.preventDefault(); // Para que no borre el formulario
     let idioma = document.getElementById('idioma').value;
-    window.location.href = "/api/eoi/lang/" + idioma;
+    window.location.href = "/api/eoi/lang/" + idioma; // Lo envia a la ruta correspondiente
 });
 
 
